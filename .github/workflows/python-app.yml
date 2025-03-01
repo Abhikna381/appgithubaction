@@ -1,0 +1,36 @@
+name: Python CI # Name of the workflow
+
+# Trigger the workflow on any push to the main branch or pull request
+on: # Event that triggers the workflow
+  push: # Push event
+    branches: [ "main" ] # Branch to trigger the workflow
+  pull_request: # Pull request event 
+    branches: # Branch to trigger the workflow
+       - main
+
+
+jobs: # Jobs that run in the workflow
+  test: # Name of the job
+    runs-on: ubuntu-latest # Operating system to run the job
+
+    steps: # Steps to run in the job
+     # Step 1: Checkout the code from the repository
+     
+    - name: Check out code # Name of the step
+      uses: actions/checkout@v4 # Action to checkout the code from the repository
+
+     # Step 2: Set up Python Environment
+    - name: Set up Python 3.10 # Name of the step
+      uses: actions/setup-python@v3 # Action to set up Python environment
+      with: # Input parameters for the action
+        python-version: "3.10" # Python version to use
+
+     # Step 3: Install dependencies
+    - name: Install dependencies # Name of the step
+      run: # Command to run in the step
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt # Install dependencies from requirements.txt
+    
+     # Step 4: Run tests   
+    - name: Run tests # Name of the step
+      run: pytest # Command to run in the step
