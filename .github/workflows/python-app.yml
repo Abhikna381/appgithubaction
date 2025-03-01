@@ -16,21 +16,21 @@ jobs: # Jobs that run in the workflow
     steps: # Steps to run in the job
      # Step 1: Checkout the code from the repository
      
-    - name: Check out code # Name of the step
-      uses: actions/checkout@v4 # Action to checkout the code from the repository
+      - name: Check out code # Name of the step
+        uses: actions/checkout@v4 # Action to checkout the code from the repository
 
      # Step 2: Set up Python Environment
-    - name: Set up Python 3.10 # Name of the step
-      uses: actions/setup-python@v3 # Action to set up Python environment
-      with: # Input parameters for the action
-        python-version: "3.10" # Python version to use
+      - name: Set up Python 3.10 # Name of the step
+        uses: actions/setup-python@v3 # Action to set up Python environment
+        with: # Input parameters for the action
+          python-version: "3.10" # Python version to use
 
      # Step 3: Install dependencies
-    - name: Install dependencies # Name of the step
-      run: # Command to run in the step
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt # Install dependencies from requirements.txt
+      - name: Install dependencies # Name of the step
+        run: # Command to run in the step
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt # Install dependencies from requirements.txt
     
      # Step 4: Run tests   
-    - name: Run tests # Name of the step
-      run: pytest # Command to run in the step
+      - name: Run tests # Name of the step
+        run: pytest # Command to run in the step
