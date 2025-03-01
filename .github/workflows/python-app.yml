@@ -5,8 +5,7 @@ on: # Event that triggers the workflow
   push: # Push event
     branches: [ "main" ] # Branch to trigger the workflow
   pull_request: # Pull request event 
-    branches: # Branch to trigger the workflow
-       - main
+    branches: [ "main" ] # Branch to trigger the workflow
 
 
 jobs: # Jobs that run in the workflow
@@ -33,6 +32,4 @@ jobs: # Jobs that run in the workflow
     
      # Step 4: Run tests   
       - name: Run tests # Name of the step
-
-      
         run: pytest # Command to run in the step
